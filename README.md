@@ -48,10 +48,14 @@ git clone https://github.com/your-username/sales-prediction-streamlit.git
 cd sales-prediction-streamlit
 ```
 # 📦 Install Dependencies <br>
-`pip install -r requirements.txt`
+```bash
+pip install -r requirements.txt
+```
 
 #🚦 Start the App
-`streamlit run app.py`
+```bash
+streamlit run app.py
+```
 
 # 📄 License
 

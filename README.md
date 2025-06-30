@@ -20,11 +20,11 @@ A machine learning-powered Streamlit web app that predicts **Units Sold** using 
 
 ## 📂 Folder Structure
 
-sales-prediction-streamlit/
-├── app.py # Main Streamlit app
-├── 5000 Sales Records.csv # Dataset file
-├── requirements.txt # Required Python libraries
-└── README.md # This file
+sales-prediction-streamlit/<br>
+├── app.py # Main Streamlit app<br>
+├── 5000 Sales Records.csv # Dataset file<br>
+├── requirements.txt # Required Python libraries<br>
+└── README.md # This file<br>
 
 
 ---

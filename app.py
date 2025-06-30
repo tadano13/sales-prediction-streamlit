@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import pickle
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import LabelEncoder
 
@@ -32,12 +31,13 @@ model.fit(X, y)
 # Streamlit App
 st.set_page_config(page_title="Sales Predictor", layout="centered")
 st.title("📈 Sales Prediction App")
-st.write("Predict expected **Units Sold** using sales data inputs.")
+st.write("Predict expected **Units Sold** using future sales data.")
 
 # Inputs
+st.subheader("📝 Input Features")
 month = st.selectbox("Month", sorted(data["Month"].unique()))
 day_of_week = st.selectbox("Day of Week (0=Mon, 6=Sun)", sorted(data["DayOfWeek"].unique()))
-year = st.selectbox("Year", sorted(data["Year"].unique()))
+year = st.selectbox("Year", sorted(data["Year"].unique()) + [2025, 2026])  # add future years
 
 region = st.selectbox("Region", label_encoders['Region'].classes_)
 country = st.selectbox("Country", label_encoders['Country'].classes_)
@@ -45,17 +45,19 @@ item_type = st.selectbox("Item Type", label_encoders['Item Type'].classes_)
 sales_channel = st.selectbox("Sales Channel", label_encoders['Sales Channel'].classes_)
 order_priority = st.selectbox("Order Priority", label_encoders['Order Priority'].classes_)
 
-# Encode user inputs
-region_enc = label_encoders['Region'].transform([region])[0]
-country_enc = label_encoders['Country'].transform([country])[0]
-item_type_enc = label_encoders['Item Type'].transform([item_type])[0]
-sales_channel_enc = label_encoders['Sales Channel'].transform([sales_channel])[0]
-order_priority_enc = label_encoders['Order Priority'].transform([order_priority])[0]
+# Button to trigger prediction
+if st.button("🔮 Predict Future Sales"):
+    # Encode user input
+    region_enc = label_encoders['Region'].transform([region])[0]
+    country_enc = label_encoders['Country'].transform([country])[0]
+    item_type_enc = label_encoders['Item Type'].transform([item_type])[0]
+    sales_channel_enc = label_encoders['Sales Channel'].transform([sales_channel])[0]
+    order_priority_enc = label_encoders['Order Priority'].transform([order_priority])[0]
 
-# Predict
-input_data = np.array([[month, day_of_week, year, region_enc, country_enc,
-                        item_type_enc, sales_channel_enc, order_priority_enc]])
-predicted_units = model.predict(input_data)[0]
+    # Prepare input
+    input_data = np.array([[month, day_of_week, year, region_enc, country_enc,
+                            item_type_enc, sales_channel_enc, order_priority_enc]])
 
-# Output
-st.success(f"🔮 Predicted Units Sold: **{predicted_units:.0f}**")
+    # Predict and show result
+    predicted_units = model.predict(input_data)[0]
+    st.success(f"📦 Predicted Units Sold: **{predicted_units:.0f}**")

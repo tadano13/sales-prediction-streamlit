@@ -57,8 +57,6 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-# 📄 License
 
----
 
-<br>Let me know if you'd like this personalized with your actual name, LinkedIn, or GitHub profile!
+

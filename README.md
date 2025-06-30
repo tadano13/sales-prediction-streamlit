@@ -44,7 +44,7 @@ sales-prediction-streamlit/<br>
 ### ⬇️ Clone or Download
 
 ```bash
-git clone https://github.com/your-username/sales-prediction-streamlit.git
+git clone https://github.com/tadano13/sales-prediction-streamlit.git
 cd sales-prediction-streamlit
 ```
 # 📦 Install Dependencies <br>

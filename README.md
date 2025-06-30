@@ -46,3 +46,15 @@ sales-prediction-streamlit/<br>
 ```bash
 git clone https://github.com/your-username/sales-prediction-streamlit.git
 cd sales-prediction-streamlit
+```
+# 📦 Install Dependencies
+`pip install -r requirements.txt`
+
+#🚦 Start the App
+`streamlit run app.py`
+
+# 📄 License
+
+---
+
+<br>Let me know if you'd like this personalized with your actual name, LinkedIn, or GitHub profile!

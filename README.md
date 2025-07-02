@@ -56,6 +56,11 @@ pip install -r requirements.txt
 ```bash
 streamlit run app.py
 ```
+# App link:
+```
+https://sales-prediction-tadano.streamlit.app/
+```
+
 
 
 
